@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ridewellapp/Rider/vehicleregister.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +16,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         
         primarySwatch: Colors.blue,
+        primaryTextTheme: const TextTheme(headline1:TextStyle(
+          fontFamily: "Inter"
+        ),),
+       
+        scaffoldBackgroundColor: Colors.white
       ),
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      
+      home: const RideRegistration(),
     );
   }
 }
