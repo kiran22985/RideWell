@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:ridewellapp/Rider/vehicleregister.dart';
 
 void main() {
@@ -12,10 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xffDC143C),
         primaryTextTheme: const TextTheme(headline1:TextStyle(
           fontFamily: "Inter"
         ),),

@@ -24,26 +24,35 @@ class _RideRegistrationState extends State<RideRegistration> {
       });
     }
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: const Text(
-            "Ride Registration",
-            style: TextStyle(color: Colors.black, fontSize: 16),
+      
+        body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            bottom: AppBar(
+              elevation: 0,
+              leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu,color: Colors.black,)),
+              title: Text("Ride Sharing",style: TextStyle(color: Colors.black,fontSize: 16),),
+              centerTitle: true,
+              backgroundColor: Colors.white,
+            ),
+            pinned: true,
+            floating: true,
+            expandedHeight: 250.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text("Ride Sharing",style: TextStyle(color:Colors.black,fontSize: 15),),
+              centerTitle: true,
+              background: Image.asset("images/rideregister.png", fit: BoxFit.fill,),
+
+            ),
+
           ),
-          backgroundColor: Colors.white,
-          centerTitle: true,
-        ),
-        body: SafeArea(
-            child: SingleChildScrollView(
-          child: Container(
+          SliverList(delegate: SliverChildListDelegate(
+            [
+              Container(
             margin: EdgeInsets.only(top: 20),
             child: Column(
               children: [
-                //============image section=============
-                const Image(image: AssetImage("images/rideregister.jpg")),
-                const SizedBox(
-                  height: 20,
-                ),
+                
 
                 //===================text below image section===============
                 Container(
@@ -401,6 +410,10 @@ class _RideRegistrationState extends State<RideRegistration> {
               ],
             ),
           ),
-        )));
+            ]
+
+          ))
+        ],
+      ),);
   }
 }
