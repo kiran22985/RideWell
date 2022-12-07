@@ -108,9 +108,7 @@ class _RideRegistrationState extends State<RideRegistration> {
 
 
       
-    // imageSelectFromGAllery(){
-
-    // }
+    
     return Scaffold(
       
         body: CustomScrollView(

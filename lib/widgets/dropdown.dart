@@ -11,7 +11,7 @@ class DropDownPage extends StatefulWidget {
 }
 
 class _DropDownPageState extends State<DropDownPage> {
-  final List<String> items=[
+  List<String> items=[
     "Bike",
     "Scooter",
     "Texi"
