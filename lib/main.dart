@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ridewellapp/Rider/ridehistory.dart';
 
 import 'package:ridewellapp/Rider/vehicleregister.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white
       ),
       
-      home: const RideRegistration(),
+      home: const RideHistoryPage(),
     );
   }
 }

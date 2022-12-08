@@ -20,7 +20,7 @@ class _RideRegistrationState extends State<RideRegistration> {
 
 
 
-
+ //============From Camera=============================================================
   void pickImage1(String photoCategory) async{
     switch(photoCategory){
       case "vehicle registration number":
@@ -60,7 +60,7 @@ class _RideRegistrationState extends State<RideRegistration> {
     final pickedImage=await  picker.pickImage(source: ImageSource.camera, imageQuality: 100);
     
     
-       switch(photoCategory){
+      switch(photoCategory){
       case "vehicle registration number":
       
         setState(() {
@@ -91,18 +91,92 @@ class _RideRegistrationState extends State<RideRegistration> {
 
 
 
+    //
+
+
+  }
+  }
+
+//======================From Gallery===================================================================
+ void selectGallery(gallerycategory)async{
+
+  switch(gallerycategory){
+      case "vehicle registration number":
+      if(_vehicleRegistrationNo!=null){
+        setState(() {
+          _vehicleRegistrationNo=null;
+        });
+      }
+      break;
+      case "licence back":
+      if(_licenceBack!=null){
+        setState(() {
+          _licenceBack=null;
+        });
+      }
+       break;
+       case "licence front":
+      if(_licenceFront!=null){
+        setState(() {
+          _licenceFront=null;
+        });
+      }
+       break;
+       case "vehicle photo":
+      if(_vehicleImage!=null){
+        setState(() {
+          _vehicleImage=null;
+        });
+      }
+       //break;
+
+
+
+    }
+    final ImagePicker picker=ImagePicker();
+
+    final pickedImage2=await  picker.pickImage(source: ImageSource.gallery, imageQuality: 100);
+    switch(gallerycategory){
+      case "vehicle registration number":
+      
+        setState(() {
+          _vehicleRegistrationNo=pickedImage2;
+         
+        });
+      
+      break;
+      case "licence back":
+      
+        setState(() {
+          _licenceBack=pickedImage2;
+        });
+      
+       break;
+       case "licence front":
+      
+        setState(() {
+          _licenceFront=pickedImage2;
+        });
+        break;
+        case "vehicle photo":
+      
+        setState(() {
+          _vehicleImage=pickedImage2;
+        });
+      
+
+
+
     
 
 
   }
-  }
 
-
-
+ }
 
  
  
-  
+ //============Scaffold Start =================================== 
   @override
   Widget build(BuildContext context) {
 
@@ -305,6 +379,8 @@ class _RideRegistrationState extends State<RideRegistration> {
                                               , icon: Icon(Icons.camera), label: Text(" Camera"))),
                                               SizedBox(width: 20,),
                                               Expanded(child: ElevatedButton.icon(onPressed: (){
+                                                Navigator.of(context).pop();
+                                                selectGallery('vehicle registration number');
 
                                               }, icon: Icon(Icons.browse_gallery), label: Text("Gallery"))),
 
@@ -514,27 +590,80 @@ class _RideRegistrationState extends State<RideRegistration> {
                               const SizedBox(
                                 height: 10,
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  border:
-                                      Border.all(width: 1, color: Colors.grey),
+                              InkWell(onTap: (() {
+                                showModalBottomSheet(
+                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))),
+                                        context: context, builder:(context)=>Padding(
+                                         padding: const EdgeInsets.all(20.0),
+                                         child: Row(
 
-                                  borderRadius: BorderRadius.circular(20),
-                                  //color: Colors.grey,
-                                ),
-                                width: 400,
-                                height: 170,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    InkWell(
-                                        onTap: () {},
-                                        child: const Icon(
-                                          Icons.image,
-                                          size: 40,
-                                        )),
-                                    Text("Upload Your documents"),
-                                  ],
+                                          children: [
+                                              Expanded(child: ElevatedButton.icon(onPressed: (){
+                                               Navigator.of(context).pop();
+                                                 pickImage1('vehicle registration number');
+                                                
+
+                                              }
+                                                
+
+                                              , icon: Icon(Icons.camera), label: Text(" Camera"))),
+                                              SizedBox(width: 20,),
+                                              Expanded(child: ElevatedButton.icon(onPressed: (){
+
+                                              }, icon: Icon(Icons.browse_gallery), label: Text("Gallery"))),
+
+                                          ],
+                                         ),
+                                       ) );
+                              }),
+                                child: Container(
+                              
+                                  decoration: BoxDecoration( 
+                                    border:
+                                        Border.all(width: 1, color:_vehicleImage!=null?ColorConstant.backgroundColor :Colors.grey),
+                                
+                                    borderRadius: BorderRadius.circular(20),
+                                    //color: Colors.grey,
+                                  ),
+                                  width: 400,  
+                                  height: 170,
+                                  child:_vehicleImage!=null? ClipRRect(child: Image.file(File(_vehicleRegistrationNo!.path),fit: BoxFit.contain,height: 170,width: 400,)): Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      
+                                      
+                                       IconButton(
+                                        
+                                        onPressed: ()async{
+                                         
+                                         showModalBottomSheet(
+                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))),
+                                          context: context, builder:(context)=>Padding(
+                                           padding: const EdgeInsets.all(20.0),
+                                           child: Row(
+                              
+                                            children: [
+                                                Expanded(child: ElevatedButton.icon(onPressed: (){
+                                                 Navigator.of(context).pop();
+                                                   pickImage1('vehicle photo');
+                                                  
+                              
+                                                }
+                                                  
+                              
+                                                , icon: Icon(Icons.camera), label: Text(" Camera"))),
+                                                SizedBox(width: 20,),
+                                                Expanded(child: ElevatedButton.icon(onPressed: (){
+                              
+                                                }, icon: Icon(Icons.browse_gallery), label: Text("Gallery"))),
+                              
+                                            ],
+                                           ),
+                                         ) );
+                                       }, icon: Icon(Icons.image,size: 40,)),
+                                      const Text("Upload Your documents")
+                                    ],
+                                  ),
                                 ),
                               ),
                               const SizedBox(height: 20),
