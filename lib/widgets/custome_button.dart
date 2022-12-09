@@ -16,9 +16,9 @@ class CustomeButton extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xffDC143C),
-                        minimumSize: const Size(500, 60),
+                        minimumSize: const Size(374, 60),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                            borderRadius: BorderRadius.circular(30))),
                   );
   }
 }

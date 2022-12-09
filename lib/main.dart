@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ridewellapp/Rider/map.dart';
+import 'package:ridewellapp/Rider/menurider.dart';
+import 'package:ridewellapp/Rider/myreviewspage.dart';
 import 'package:ridewellapp/Rider/ridehistory.dart';
+import 'package:ridewellapp/Rider/tripdetail.dart';
 
 import 'package:ridewellapp/Rider/vehicleregister.dart';
+import 'package:ridewellapp/widgets/expandablewidget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,10 +28,17 @@ class MyApp extends StatelessWidget {
           fontFamily: "Inter"
         ),),
        
-        scaffoldBackgroundColor: Colors.white
+        scaffoldBackgroundColor: Color(0xffFFFFFF)
       ),
       
-      home: const RideHistoryPage(),
+      //
+      home:  RiderReviewsPage(),
+      // initialRoute: "/menurider",
+      // routes: {
+      //   "/triphistory":(context) => const RideHistoryPage(),
+      //   "/tripdetail":(context) => const TripDetailsPage(),
+      //   "/menurider":(context) => const MenuRiderPage(),
+      // },
     );
   }
 }
