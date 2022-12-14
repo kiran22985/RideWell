@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ridewellapp/Rider/map.dart';
-import 'package:ridewellapp/Rider/menurider.dart';
+import 'package:ridewellapp/Rider/mainPage.dart';
+import 'package:ridewellapp/Rider/drawer_rider.dart';
 import 'package:ridewellapp/Rider/myreviewspage.dart';
 import 'package:ridewellapp/Rider/ridehistory.dart';
 import 'package:ridewellapp/Rider/tripdetail.dart';
 
 import 'package:ridewellapp/Rider/vehicleregister.dart';
+import 'package:ridewellapp/Rider/viewdetail.dart';
 import 'package:ridewellapp/widgets/expandablewidget.dart';
 
 void main() {
@@ -32,13 +33,15 @@ class MyApp extends StatelessWidget {
       ),
       
       //
-      home:  RiderReviewsPage(),
-      // initialRoute: "/menurider",
-      // routes: {
-      //   "/triphistory":(context) => const RideHistoryPage(),
-      //   "/tripdetail":(context) => const TripDetailsPage(),
-      //   "/menurider":(context) => const MenuRiderPage(),
-      // },
+      //home:  MainPage(),
+    initialRoute: "/mainpage",
+      routes: {
+        "/ridehistory":(context) => const RideHistoryPage(),
+        "/tripdetail":(context) => const TripDetailsPage(),
+        "/menurider":(context) => const DrawerPage(),
+        "/mainpage":(context) => const  MainPage(),
+        "/viewdetail":(context) => const ViewDetailPage(),
+      },
     );
   }
 }

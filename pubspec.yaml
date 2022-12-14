@@ -41,6 +41,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   intl: ^0.17.0
   expandable: ^5.0.1
+  google_maps_flutter: ^2.2.2
 
 dev_dependencies:
   flutter_test:

@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
-class MenuRiderPage extends StatefulWidget {
-  const MenuRiderPage({super.key});
+class DrawerPage extends StatefulWidget {
+  const DrawerPage({super.key});
 
   @override
-  State<MenuRiderPage> createState() => _MenuRiderPageState();
+  State<DrawerPage> createState() => _DrawerPageState();
 }
 
-class _MenuRiderPageState extends State<MenuRiderPage> {
- ListTile buildListTile({String? title, String? subtitle}){
+class _DrawerPageState extends State<DrawerPage> {
+ ListTile buildListTile({String? title, String? subtitle, VoidCallback? ontap}){
    return  ListTile(
             title: Text("$title",style: TextStyle(fontWeight: FontWeight.bold),),
             subtitle: Text("$subtitle"),
             trailing: Icon(Icons.arrow_back),
+            onTap: ontap,
           );
 
 
@@ -61,7 +62,9 @@ class _MenuRiderPageState extends State<MenuRiderPage> {
               ),
               SizedBox(height: 20,),
               Divider(),
-              buildListTile(title: "Ride History", subtitle: "View everything about your trip you did",),
+              buildListTile(title: "Ride History", subtitle: "View everything about your trip you did", ontap: (){
+                Navigator.pushNamed(context, "/ridehistory");
+              }),
               Divider(),
               buildListTile(title: "Dashboard", subtitle: "View all of your informations and insights at one place",),
               Divider(),

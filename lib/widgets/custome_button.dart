@@ -12,7 +12,7 @@ class CustomeButton extends StatelessWidget {
                     onPressed: onpressed,
                     child: Text(
                       label,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                     ),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xffDC143C),
