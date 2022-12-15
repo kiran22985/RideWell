@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ridewellapp/Rider/drawer_rider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ridewellapp/models/ridehistorymodel.dart';
 import 'package:ridewellapp/utils/mediaquery.dart';
 import 'package:ridewellapp/widgets/custome_button.dart';
+import 'package:ridewellapp/widgets/dimcontainer.dart';
 
 const LatLng currentLocation=LatLng(27.7172, 85.3240);
 class MainPage extends StatefulWidget {
@@ -18,10 +20,18 @@ class _MainPageState extends State<MainPage> {
   bool isRequestedTrip=true;
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   const SystemUiOverlayStyle(
+    //     statusBarColor: Colors.transparent,
+    //     statusBarBrightness: Brightness.dark,
+    //     statusBarIconBrightness: Brightness.dark,
+        
+    //     )
+    // );
     return Scaffold(
       //drawer: DrawerPage(),
       
-      body: SafeArea(child: Stack(
+      body: Stack(
         children:  [
           const GoogleMap(
             initialCameraPosition: CameraPosition(
@@ -37,6 +47,7 @@ class _MainPageState extends State<MainPage> {
               },
               child: SvgPicture.asset("images/img_menu.svg"))),
 
+            isRequestedTrip?DimContainerPAge():SizedBox.shrink(),
             isRequestedTrip? Positioned(
               left: getHorizontalSize(20),
               top: getVerticalSize(266),
@@ -151,7 +162,7 @@ class _MainPageState extends State<MainPage> {
 
           
         ],
-      )),
+      ),
     );
   }
 }

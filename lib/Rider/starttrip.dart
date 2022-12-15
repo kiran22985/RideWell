@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ridewellapp/Rider/drawer_rider.dart';
@@ -9,48 +7,17 @@ import 'package:ridewellapp/utils/mediaquery.dart';
 import 'package:ridewellapp/widgets/custome_button.dart';
 
 const LatLng currentLocation=LatLng(27.7172, 85.3240);
-class ViewDetailPage extends StatefulWidget {
-  const ViewDetailPage({super.key});
+class StarTrip extends StatefulWidget {
+  const StarTrip({super.key});
 
   @override
-  State<ViewDetailPage> createState() => _ViewDetailPageState();
+  State<StarTrip> createState() => _StarTripState();
 }
 
-class _ViewDetailPageState extends State<ViewDetailPage> {
+class _StarTripState extends State<StarTrip> {
   bool isRequestedTrip=true;
-  Timer? countDownTimer;
-  Duration myDuration=Duration(seconds: 60);
-
-   @override
-   void initState(){
-    super.initState();
-    
-    countDownTimer =
-        Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
-  
-   }
-
-   
-  // Step 4
-  void stopTimer() {
-    setState(() => countDownTimer!.cancel());
-  }
-
-  void setCountDown() {
-    final reduceSecondsBy = 1;
-    setState(() {
-      final seconds = myDuration.inSeconds - reduceSecondsBy;
-      if (seconds < 0) {
-        countDownTimer!.cancel();
-      } else {
-        myDuration = Duration(seconds: seconds);
-      }
-    });
-  }
   @override
   Widget build(BuildContext context) {
-    String strDigits(int n) => n.toString().padLeft(2, '0');
-    final seconds = strDigits(myDuration.inSeconds.remainder(60));
     return Scaffold(
       //drawer: DrawerPage(),
       
@@ -72,7 +39,7 @@ class _ViewDetailPageState extends State<ViewDetailPage> {
 
             isRequestedTrip? Positioned(
               //left: getHorizontalSize(20),
-              top: getVerticalSize(350),
+              top: getVerticalSize(340),
               child: Container(
                 padding: EdgeInsets.only(top: 30, bottom: 30),
               width: getHorizontalSize(414) ,
@@ -188,7 +155,7 @@ class _ViewDetailPageState extends State<ViewDetailPage> {
                   flex: 7,
                   child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
               Text("Ride For"),
               SizedBox(height: 5,),
               Text("Self",style: TextStyle(fontWeight: FontWeight.bold),)
@@ -201,41 +168,10 @@ class _ViewDetailPageState extends State<ViewDetailPage> {
            const  SizedBox(
                       height: 20,
                     ),
-            Padding(
-                padding: const EdgeInsets.only(left: 20,right: 20),
-                child: SizedBox(//width: getHorizontalSize(320),
-                height: getVerticalSize(56),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          width: getHorizontalSize(177),
-                          height: getVerticalSize(60),
-                          child: OutlinedButton(
-                            onPressed: (){},
-                             
-                            child: Text("Cancel Ride", style: TextStyle(color:const Color(0xffDC143C),),),
-                            style: OutlinedButton.styleFrom(
-                            side: const BorderSide(
-                              color: const Color(0xffDC143C),
-                            ),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),
-                            
-                            )
-                          ),)),
-                      ),
-                      const SizedBox(width: 20,),
-                      Expanded(
-                        child: SizedBox(
-                          width: getHorizontalSize(177),
-                          child: CustomeButton(label: "Accept Trip($seconds)", onpressed: (){
-                            
-                            Navigator.pushNamed(context, "/starttrip");
-                          })),
-                      ),
-                    ],
-                  )),
-            )
+            SizedBox(
+              width: getHorizontalSize(374),
+              
+              child: CustomeButton(label: "Start Trip", onpressed: (){}))
             
 
                 ]),

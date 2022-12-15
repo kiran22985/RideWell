@@ -3,6 +3,7 @@ import 'package:ridewellapp/Rider/mainPage.dart';
 import 'package:ridewellapp/Rider/drawer_rider.dart';
 import 'package:ridewellapp/Rider/myreviewspage.dart';
 import 'package:ridewellapp/Rider/ridehistory.dart';
+import 'package:ridewellapp/Rider/starttrip.dart';
 import 'package:ridewellapp/Rider/tripdetail.dart';
 
 import 'package:ridewellapp/Rider/vehicleregister.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         "/menurider":(context) => const DrawerPage(),
         "/mainpage":(context) => const  MainPage(),
         "/viewdetail":(context) => const ViewDetailPage(),
+        "/starttrip":(context) => const StarTrip(),
       },
     );
   }
