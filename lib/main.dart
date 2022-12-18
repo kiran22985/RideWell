@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ridewellapp/Rider/Payment/paymentmethod.dart';
+import 'package:ridewellapp/Rider/Payment/paymentrequest.dart';
+import 'package:ridewellapp/Rider/dashboard.dart';
 import 'package:ridewellapp/Rider/mainPage.dart';
 import 'package:ridewellapp/Rider/drawer_rider.dart';
 import 'package:ridewellapp/Rider/myreviewspage.dart';
@@ -8,7 +11,7 @@ import 'package:ridewellapp/Rider/tripdetail.dart';
 
 import 'package:ridewellapp/Rider/vehicleregister.dart';
 import 'package:ridewellapp/Rider/viewdetail.dart';
-import 'package:ridewellapp/widgets/expandablewidget.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -43,6 +46,10 @@ class MyApp extends StatelessWidget {
         "/mainpage":(context) => const  MainPage(),
         "/viewdetail":(context) => const ViewDetailPage(),
         "/starttrip":(context) => const StarTrip(),
+        "/requestpayment":(context) => const RequestPaymentPage(),
+        "/modeofpayment":(context) => const ModeOfPayment(),
+        "/riderreview":(context) => const RiderReviewsPage(),
+        "/dashboard":(context) => const DashBoardPage()
       },
     );
   }

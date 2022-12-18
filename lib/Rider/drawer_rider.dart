@@ -66,11 +66,15 @@ class _DrawerPageState extends State<DrawerPage> {
                 Navigator.pushNamed(context, "/ridehistory");
               }),
               Divider(),
-              buildListTile(title: "Dashboard", subtitle: "View all of your informations and insights at one place",),
+              buildListTile(title: "Dashboard", subtitle: "View all of your informations and insights at one place",ontap: (){
+                Navigator.pushNamed(context, "/dashboard");
+              }),
               Divider(),
               buildListTile(title: "My Documents", subtitle: "View all of your documents",),
               Divider(),
-              buildListTile(title: "My Reviews", subtitle: "Check all the reviews user gave",),
+              buildListTile(title: "My Reviews", subtitle: "Check all the reviews user gave",ontap: (){
+                Navigator.pushNamed(context, "/riderreview");
+              }),
               Divider(),
               buildListTile(title: "Saved Address", subtitle: "View all of your saved address",),
               SizedBox(height: 125,),

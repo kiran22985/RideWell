@@ -171,7 +171,9 @@ class _StarTripState extends State<StarTrip> {
             SizedBox(
               width: getHorizontalSize(374),
               
-              child: CustomeButton(label: "Start Trip", onpressed: (){}))
+              child: CustomeButton(label: "Start Trip", onpressed: (){
+                Navigator.pushNamed(context, "/requestpayment");
+              }))
             
 
                 ]),
